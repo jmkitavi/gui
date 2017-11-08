@@ -11,7 +11,7 @@ echo "Deleting old publication"
  echo "Generating site"
  hugo
  echo "Updating gh-pages branch"
- cd public && git add --all && git commit -m "Initial Post"
+ cd public && git add --all && git commit -m "Change image url"
 # Push source and build repos.
 git push origin gh-pages
 # create new post
