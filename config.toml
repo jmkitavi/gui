@@ -1,0 +1,30 @@
+baseURL = "https://sirjmkitavi.github.io/sample/"
+languageCode = "en-us"
+title = "Kitavi Site"
+theme = "hugo-theme-nix"
+disqusShortname = "github-pages-2"
+
+
+[menu]
+  [[menu.header]]
+    name = "blog"
+    weight = 0
+    url = "/post"
+  [[menu.header]]
+    name = "about"
+    weight = 1
+    url = "/about"
+
+[params]
+  GithubID = "sirjmkitavi"
+  TwitterID = "sirjmkitavi"
+  LinkedInID = "sirjmkitavi"
+  TelegramID = "sirjmkitavi"
+  Name = "Kitavi Joseph"
+  HeaderUsername = "sirjm"
+  HeaderHostname = "kitavi"
+  Email = "kitavimjoseph@gmail.com"
+  About = "Hello, I'm sirjmkitavi and this is my space. I am a developer, cyber security enthusiast and tryinf to be a writer. I like building and breaking stuff. Watch this space for more on what I love and my escapades in this amazing workd of tech. Enjoy!"
+  ProfilePicture = "/profile.jpg"
+
+
