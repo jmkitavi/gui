@@ -1,4 +1,4 @@
-baseURL = "https://sirjmkitavi.github.io/blog/"
+baseURL = "https://sirjmkitavi.github.io/gui/"
 languageCode = "en-us"
 title = "Sir JM Kitavi"
 theme = "hugo-theme-nix"
