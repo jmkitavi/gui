@@ -1,6 +1,6 @@
 baseURL = "https://sirjmkitavi.github.io/blog/"
 languageCode = "en-us"
-title = "Kitavi Site"
+title = "Sir JM Kitavi"
 theme = "hugo-theme-nix"
 disqusShortname = "github-pages-2"
 
