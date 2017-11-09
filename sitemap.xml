@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/post/mr-robot-ctf/</loc>
+    <lastmod>2017-11-09T12:15:19+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/post/my-first-post/</loc>
+    <lastmod>2017-11-07T18:22:37+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/post/</loc>
+    <lastmod>2017-11-09T12:15:19+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/</loc>
+    <lastmod>2017-11-09T12:15:19+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sirjmkitavi.github.io/gui/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
