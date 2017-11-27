@@ -108,6 +108,15 @@
 ├── README.md
 </code></pre>
 
+<ul>
+<li><code>node_modules</code> - this is where all our node packages go to.</li>
+<li><code>public</code> - contains root html file, this is where our bundled output is rendered from.</li>
+<li><code>src</code> - where all our code resides, we&rsquo;ll spend most of the time here.</li>
+<li><code>package.json</code> - has information about the project, like name, packages used, version, author</li>
+<li><code>.gitinore</code> - important especially for git (version control), it indicates files to ignore.</li>
+<li><code>README.md</code> - well like it says, READ ME&hellip; should have detailed information about project.</li>
+</ul>
+
 <p>To run the app and see your progress.</p>
 
 <p>Go into your project folder</p>
@@ -168,18 +177,25 @@
 ├── README.md
 </code></pre>
 
-<p>Due to the few files we moved, we expect to have a few import errors since they can&rsquo;t be found where they were.</p>
+<p>Due to the few files we moved, we expect to have a few import errors since the import paths have changed.</p>
 
 <p>Simple to fix, all we have to do is change the paths to reflect their new locations. lets do that.</p>
 
 <ul>
-<li>Delete <code>logo.svg</code> we won&rsquo;t be using it either, remove it&rsquo;s imports in <code>App.js</code>. Remember to delete the line of code that was using it too. <code>&lt;img src={logo} ...</code></li>
+<li>Delete <code>logo.svg</code> we won&rsquo;t be using it either, remove it&rsquo;s imports in <code>App.js</code>. Remember to delete this line of code too. <code>&lt;img src={logo}...</code></li>
 <li>Update the css import in <code>App.js</code> to <code>import '../styles/App.css'</code> because of the new location of the css file</li>
 <li>Update the css import in <code>index.js</code> to <code>import './styles/index.css'</code></li>
 <li>Also update import for <code>App.js</code> in <code>index.js</code> to <code>import App from './components/App'</code></li>
 </ul>
 
-<p>With those few fixes out app should be back to working condition.</p>
+<p><strong>Note:</strong></p>
+
+<ul>
+<li><em>the <code>../</code> and <code>./</code> are used to move up folders, <code>../</code> moves back one folder i.e if you are in <code>src/components</code> it takes you back to <code>src</code>.</em></li>
+<li><em><code>./</code> checks current directory e.g for <code>index.js</code> since <code>styles</code> folder is in same directory we used <code>./styles/...</code></em></li>
+</ul>
+
+<p>With those few fixes out app should be back up and running.</p>
 
 <p>Lets go to <code>http://localhost:3000/</code> to make sure of the same.</p>
 
@@ -202,13 +218,13 @@ touch HomePage.js
 
 <pre><code>app-name
   └── src
-  	  	├── components
-        		├── home
-                	└── HomePage.js
-        	└── App.js
+      ├── components
+          ├── home
+              └── HomePage.js
+          └── App.js
         ├── styles
-      		└── App.css
-      		└── index.css
+            └── App.css
+            └── index.css
       └── index.js
       └── registerServiceWorker.js
       └── routes.js
