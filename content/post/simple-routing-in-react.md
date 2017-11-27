@@ -38,6 +38,13 @@ app-name
 ├── README.md
 ```
 
+ - `node_modules` - this is where all our node packages go to.
+ - `public` - contains root html file, this is where our bundled output is rendered from.
+ - `src` - where all our code resides, we'll spend most of the time here.
+ - `package.json` - has information about the project, like name, packages used, version, author
+ - `.gitinore` - important especially for git (version control), it indicates files to ignore.
+ - `README.md` - well like it says, READ ME... should have detailed information about project.
+
 To run the app and see your progress.
 
 Go into your project folder
@@ -98,16 +105,21 @@ app-name
 ├── README.md
 ```
 
-Due to the few files we moved, we expect to have a few import errors since they can't be found where they were.
+Due to the few files we moved, we expect to have a few import errors since the import paths have changed.
 
 Simple to fix, all we have to do is change the paths to reflect their new locations. lets do that.
 
-- Delete `logo.svg` we won't be using it either, remove it's imports in `App.js`. Remember to delete the line of code that was using it too. `<img src={logo} ...`
+- Delete `logo.svg` we won't be using it either, remove it's imports in `App.js`. Remember to delete this line of code too. `<img src={logo}...`
 - Update the css import in `App.js` to `import '../styles/App.css'` because of the new location of the css file
 - Update the css import in `index.js` to `import './styles/index.css'`
 - Also update import for `App.js` in `index.js` to `import App from './components/App'`
 
-With those few fixes out app should be back to working condition.
+**Note:** 
+
+ - *the `../` and `./` are used to move up folders, `../` moves back one folder i.e if you are in `src/components` it takes you back to `src`.*
+ - *`./` checks current directory e.g for `index.js` since `styles` folder is in same directory we used `./styles/...`*
+
+With those few fixes out app should be back up and running.
 
 Lets go to `http://localhost:3000/` to make sure of the same.
 
@@ -129,13 +141,13 @@ After creating this your files in `/src/` should look like below.
 ```
 app-name
   └── src
-  	  	├── components
-        		├── home
-                	└── HomePage.js
-        	└── App.js
-        ├── styles
-      		└── App.css
-      		└── index.css
+      ├── components
+          ├── home
+              └── HomePage.js
+          └── App.js
+      ├── styles
+          └── App.css
+          └── index.css
       └── index.js
       └── registerServiceWorker.js
       └── routes.js
