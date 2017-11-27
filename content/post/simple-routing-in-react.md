@@ -85,11 +85,11 @@ app-name
   │   └── index.html
   │   └── manifest.json
   └── src
-  	  	├── components
-        	└── App.js
-        ├── styles
-      		└── App.css
-      		└── index.css
+      ├── components
+          └── App.js
+      ├── styles
+          └── App.css
+          └── index.css
       └── index.js
       └── logo.svg
       └── registerServiceWorker.js
