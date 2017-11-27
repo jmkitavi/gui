@@ -3,12 +3,18 @@ title = "Simple Routing in React (Router4)"
 date = 2017-11-27T20:38:51+03:00
 +++
 
-[React](https://reactjs.org/) is the most popular used JavaScript front end frameworks. I recently (not really recently, been a while) started learning react. While learning it React decided to move to a new implemntation of `react-router`. I had already started learning the older one, but had to switch to learn the new one. It wasn't an easy ride, but using the [Router 4 docs](https://reacttraining.com/react-router) I managed to level up. Here is a short guide on **How To Do It**.
+[React](https://reactjs.org/) is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - `react-router v4`. I had already started learning the older one, but had to switch to learn the new one. It wasn't an easy ride, but using the [Router 4 docs](https://reacttraining.com/react-router) I managed to level up. Here is a short guide on **How To Do It**.
+
+### Getting Started
+
+If you are totally new in React, I'd advise you go through the basics of react like installation and setting up environments. [reactjs.org](https://reactjs.org/) will be very resourcefull, once you install react and set up you ready to start.
 
 To get started run:
 ```sh
 create-react-app app-name
 ```
+
+Check out [Creating React App](https://reactjs.org/docs/installation.html#creating-a-new-application) for more details on the above command.
 
 This will create a react application, with basic files needed. 
 
