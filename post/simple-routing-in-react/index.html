@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Simple Routing in React (Router4) &middot; Sir JM Kitavi </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://sirjmkitavi.github.io/gui/css/nix.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href="http://sirjmkitavi.ml"/>root@sirjm ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="https://sirjmkitavi.github.io/gui/" id="green-terminal" >/home/sirjm</a>
+				</li>
+				
+				
+				<li >
+					<a href="/gui/about" id="green-terminal">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/gui/post" id="green-terminal">~/blog</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="container wrapper">
+            <h1><a href="https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/">Simple Routing in React (Router4)</a></h1>
+            <span class="post-date">Nov 27, 2017 </span>
+            <div class="post-content">
+                
+
+<p><a href="https://reactjs.org/">React</a> is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - <code>react-router v4</code>. I had already started learning the older one, but had to switch to learn the new one. It wasn&rsquo;t an easy ride, but using the <a href="https://reacttraining.com/react-router">Router 4 docs</a> I managed to level up. Here is a short guide on <strong>How To Do It</strong>.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>If you are totally new in React, I&rsquo;d advise you go through the basics of react like installation and setting up environments. <a href="https://reactjs.org/">reactjs.org</a> will be very resourcefull, once you install react and set up you ready to start.</p>
+
+<p>To get started run:</p>
+
+<pre><code class="language-sh">create-react-app app-name
+</code></pre>
+
+<p>Check out <a href="https://reactjs.org/docs/installation.html#creating-a-new-application">Creating React App</a> for more details on the above command.</p>
+
+<p>This will create a react application, with basic files needed.</p>
+
+<pre><code>app-name
+  ├── node_modules
+  ├── public
+  │   └── favicon.ico
+  │   └── index.html
+  │   └── manifest.json
+  └── src
+      └── App.css
+      └── App.js
+      └── App.test.js
+      └── index.css
+      └── index.js
+      └── logo.svg
+      └── registerServiceWorker.js
+├── package.json
+├── .gitignore
+├── README.md
+</code></pre>
+
+<p>To run the app and see your progress.</p>
+
+<p>Go into your project folder</p>
+
+<pre><code class="language-sh">cd app-name
+</code></pre>
+
+<p>Then run</p>
+
+<pre><code class="language-sh">npm start
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="language-sh">yarn start
+</code></pre>
+
+<p>Visit <code>http://localhost:3000/</code> to access the running application.</p>
+
+<h3 id="re-structuring-files">Re-Structuring files</h3>
+
+<p>Now that we have this running lets re-structure our files. This helps a lot as your app keeps growing to have similar files put together.</p>
+
+<p>We won&rsquo;t be doing any testing now so its safe to get rid of the test files. <code>*.test.js</code>.</p>
+
+<p>Well start by adding a folder named <code>components</code> in the <code>app-name/src</code> folder.</p>
+
+<p>You can create by running this in your working directory.</p>
+
+<pre><code class="language-sh">mkdir src/components
+</code></pre>
+
+<p>After creating the folder <code>app-name/src/components</code> move the file <code>App.js</code> to the folder.</p>
+
+<p>Also create <code>styles</code> folder in <code>src</code>, this will contain the <code>*.css</code> files.</p>
+
+<p><strong>Note:</strong> <em>You will definitely have errors, we will take care of those soon.</em></p>
+
+<p>After creating the folders and moving the files stated above this should be your new folder structure:</p>
+
+<pre><code>app-name
+  ├── node_modules
+  ├── public
+  │   └── favicon.ico
+  │   └── index.html
+  │   └── manifest.json
+  └── src
+  	  	├── components
+        	└── App.js
+        ├── styles
+      		└── App.css
+      		└── index.css
+      └── index.js
+      └── logo.svg
+      └── registerServiceWorker.js
+├── package.json
+├── .gitignore
+├── README.md
+</code></pre>
+
+<p>Due to the few files we moved, we expect to have a few import errors since they can&rsquo;t be found where they were.</p>
+
+<p>Simple to fix, all we have to do is change the paths to reflect their new locations. lets do that.</p>
+
+<ul>
+<li>Delete <code>logo.svg</code> we won&rsquo;t be using it either, remove it&rsquo;s imports in <code>App.js</code>. Remember to delete the line of code that was using it too. <code>&lt;img src={logo} ...</code></li>
+<li>Update the css import in <code>App.js</code> to <code>import '../styles/App.css'</code> because of the new location of the css file</li>
+<li>Update the css import in <code>index.js</code> to <code>import './styles/index.css'</code></li>
+<li>Also update import for <code>App.js</code> in <code>index.js</code> to <code>import App from './components/App'</code></li>
+</ul>
+
+<p>With those few fixes out app should be back to working condition.</p>
+
+<p>Lets go to <code>http://localhost:3000/</code> to make sure of the same.</p>
+
+<h3 id="setting-up-routing">Setting Up Routing</h3>
+
+<p>To set up routing lets first create a <strong>HomePage</strong> for our application.</p>
+
+<p>Create a new folder in <code>components</code> named <code>home</code> and inside it a new file <code>HomePage.js</code></p>
+
+<pre><code class="language-sh">mkdir home
+cd home
+touch HomePage.js
+</code></pre>
+
+<p>or use your favourite editor to create the folder and file inside the folder.</p>
+
+<p>Also create a <code>routes.js</code> file in the <code>src</code> directory.</p>
+
+<p>After creating this your files in <code>/src/</code> should look like below.</p>
+
+<pre><code>app-name
+  └── src
+  	  	├── components
+        		├── home
+                	└── HomePage.js
+        	└── App.js
+        ├── styles
+      		└── App.css
+      		└── index.css
+      └── index.js
+      └── registerServiceWorker.js
+      └── routes.js
+</code></pre>
+
+<p>Now let&rsquo;s move all the code in <code>App.js</code> to <code>/home/HomePage.js</code> and edit it to look like this.</p>
+
+<pre><code class="language-js">import React, { Component } from 'react';
+import '../../styles/App.css';
+
+
+class HomePage extends Component{
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;header className=&quot;App-header&quot;&gt;
+          &lt;h1 className=&quot;App-title&quot;&gt;Welcome to React&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;p className=&quot;App-intro&quot;&gt;
+          To get started, edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
+        &lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default HomePage;
+</code></pre>
+
+<p>Notice we change the class name to <strong>HomePage</strong> and exported it. Also we updated the css import since we moved one folder deeper than we previously were.</p>
+
+<p>Next, we will convert our <code>App.js</code> to a parent component that will display children passed to it.</p>
+
+<pre><code class="language-js">import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import '../styles/App.css';
+
+class App extends Component {
+  render() {
+    return (
+      &lt;div className=&quot;container-fluid&quot;&gt;
+        {this.props.children}
+      &lt;/div&gt;
+    );
+  }
+}
+
+App.PropTypes = {
+  children: PropTypes.object.isRequired
+};
+
+export default App;
+</code></pre>
+
+<p>This is how our new <code>App.js</code> will look like.</p>
+
+<p>This is important since we will have to pass it in our router file so that it can hold all the other components.</p>
+
+<p>Lets jump onto the <code>routes.js</code> file and see that.</p>
+
+<ul>
+<li>So as usual for any React file we will import react. Then move on to importing what we need from <code>react-router</code>. Ensure you are using <code>router4</code>.</li>
+<li>Then we will import <code>App.js</code> like I mentioned earlier.</li>
+<li>Then import HomePage which we will use to test if our routing works.</li>
+<li>Lastly we will write the code to control the routing.</li>
+</ul>
+
+<pre><code class="language-js">import React from 'react';
+import { Route, Switch } from 'react-router';
+import App from './components/App';
+import HomePage from './components/home/HomePage';
+
+const Routes = () =&gt; (
+  &lt;App&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path=&quot;/&quot; component={HomePage} /&gt;
+      &lt;Route exact path=&quot;/home&quot; component={HomePage} /&gt;
+    &lt;/Switch&gt;
+  &lt;/App&gt;
+)
+export default Routes;
+
+</code></pre>
+
+<p>Ensure to have <code>react-router</code> installed.</p>
+
+<pre><code class="language-sh">yarn add react-router
+</code></pre>
+
+<p>Be sure to check documentation for React Router 4 for what most of this is doing.</p>
+
+<p>But in a nut shell after the imports we create a function <code>Routes</code> that takes in the <code>App</code> and <code>Switch</code> which basically switches between the different components you will have depending on the url.</p>
+
+<p>I used both <code>/</code> and <code>/home</code> as the urls for our <code>HomePage</code> component.</p>
+
+<p>Now that we have the routes file ready let&rsquo;s jump into the <code>index.js</code> (entry point of our application) and use the routes we just created.</p>
+
+<p>The major difference here will be in the <code>render</code> function but first remember to import the following as we will need them.</p>
+
+<pre><code class="language-js">import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes';
+</code></pre>
+
+<p>Ensure to have <code>react-router-dom</code> installed.</p>
+
+<pre><code class="language-sh">yarn add react-router-dom
+</code></pre>
+
+<p>Then update your render function to the following.</p>
+
+<pre><code class="language-js">render (
+  &lt;BrowserRouter&gt;
+    &lt;Routes /&gt;
+  &lt;/BrowserRouter&gt;,
+  document.getElementById('root')
+);
+</code></pre>
+
+<p>This updates our application to start using the <code>Routes</code> we created, imported and passed in the <code>BrowserRouter</code> component.</p>
+
+<p>With this done, our app should be running successfully and using our newly created Routes.</p>
+
+<h3 id="happy-coding">Happy Coding.</h3>
+
+            </div>
+            
+            <div class="post-comments">
+                <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "github-pages-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+            <div class="push"></div>
+        </div>
+        <footer class="footer text-center">
+<p>Copyright &copy; 2017 Kitavi Joseph
+</p>
+</footer>
+
+    </body>
