@@ -74,13 +74,13 @@
             <div class="post-content">
                 
 
-<p><a href="https://reactjs.org/">React</a> is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - <code>react-router v4</code>. I had already started learning the older one, but had to switch to learn the new one. It wasn&rsquo;t an easy ride, but using the <a href="https://reacttraining.com/react-router">Router 4 docs</a> I managed to level up. Here is a short guide on <strong>How To Do It</strong>.</p>
+<p><a href="https://reactjs.org/">React</a> is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - <code>react-router v4</code>. I had already started learning the older one, but had to switch to learn the new one. It wasn&rsquo;t an easy ride, but using the <a href="https://reacttraining.com/react-router">Router 4 docs</a> I managed to level up. Here is a short guide on <strong>How To Do It 👊🏾</strong>.</p>
 
 <h3 id="getting-started">Getting Started</h3>
 
-<p>If you are totally new in React, I&rsquo;d advise you go through the basics of react like installation and setting up environments. <a href="https://reactjs.org/">reactjs.org</a> will be very resourcefull, once you install react and set up you ready to start.</p>
+<p>If you are totally new in React, I&rsquo;d advise you go through the basics of react like installation and setting up environments. <a href="https://reactjs.org/">reactjs.org</a>👌🏾 will be very resourcefull, once you install react and set up you ready to start.</p>
 
-<p>To get started run:</p>
+<p>To get started run the command below (replace app-name with your preferred name for your project).</p>
 
 <pre><code class="language-sh">create-react-app app-name
 </code></pre>
@@ -232,52 +232,13 @@ touch HomePage.js
 
 <p>Now let&rsquo;s move all the code in <code>App.js</code> to <code>/home/HomePage.js</code> and edit it to look like this.</p>
 
-<pre><code class="language-js">import React, { Component } from 'react';
-import '../../styles/App.css';
-
-
-class HomePage extends Component{
-  render() {
-    return (
-      &lt;div className=&quot;App&quot;&gt;
-        &lt;header className=&quot;App-header&quot;&gt;
-          &lt;h1 className=&quot;App-title&quot;&gt;Welcome to React&lt;/h1&gt;
-        &lt;/header&gt;
-        &lt;p className=&quot;App-intro&quot;&gt;
-          To get started, edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
-        &lt;/p&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-
-export default HomePage;
-</code></pre>
+<script src="//gist.github.com/sirjmkitavi/b97d003a5bd38fa63ca4fa953fff5fc4.js"></script>
 
 <p>Notice we change the class name to <strong>HomePage</strong> and exported it. Also we updated the css import since we moved one folder deeper than we previously were.</p>
 
 <p>Next, we will convert our <code>App.js</code> to a parent component that will display children passed to it.</p>
 
-<pre><code class="language-js">import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import '../styles/App.css';
-
-class App extends Component {
-  render() {
-    return (
-      &lt;div className=&quot;container-fluid&quot;&gt;
-        {this.props.children}
-      &lt;/div&gt;
-    );
-  }
-}
-
-App.PropTypes = {
-  children: PropTypes.object.isRequired
-};
-
-export default App;
-</code></pre>
+<script src="//gist.github.com/sirjmkitavi/01f5d8638d4bc50f44af39cfcb344504.js"></script>
 
 <p>This is how our new <code>App.js</code> will look like.</p>
 
@@ -292,22 +253,7 @@ export default App;
 <li>Lastly we will write the code to control the routing.</li>
 </ul>
 
-<pre><code class="language-js">import React from 'react';
-import { Route, Switch } from 'react-router';
-import App from './components/App';
-import HomePage from './components/home/HomePage';
-
-const Routes = () =&gt; (
-  &lt;App&gt;
-    &lt;Switch&gt;
-      &lt;Route exact path=&quot;/&quot; component={HomePage} /&gt;
-      &lt;Route exact path=&quot;/home&quot; component={HomePage} /&gt;
-    &lt;/Switch&gt;
-  &lt;/App&gt;
-)
-export default Routes;
-
-</code></pre>
+<script src="//gist.github.com/sirjmkitavi/4a47f79e9bea8b6a289a67ddc2db0fed.js"></script>
 
 <p>Ensure to have <code>react-router</code> installed.</p>
 
@@ -343,11 +289,52 @@ import Routes from './routes';
 );
 </code></pre>
 
-<p>This updates our application to start using the <code>Routes</code> we created, imported and passed in the <code>BrowserRouter</code> component.</p>
+<p>Final <code>index.js</code> should be:</p>
+
+<script src="//gist.github.com/sirjmkitavi/1940cf3cedf13919e3c097398cc3556d.js"></script>
+
+<p>With this updates our application to start using the <code>Routes</code> we created, imported and passed in the <code>BrowserRouter</code> component.</p>
 
 <p>With this done, our app should be running successfully and using our newly created Routes.</p>
 
-<h3 id="happy-coding">Happy Coding.</h3>
+<p>Let&rsquo;s jump to the browser and see if whether our routing is working as intended</p>
+
+<ul>
+<li><code>http://localhost:3000/</code>,  should display the HomePage as we indicated in the routes file.</li>
+<li><code>http://localhost:3000/home</code> should display the HomePage too.</li>
+</ul>
+
+<h3 id="adding-404-page">Adding 404 Page</h3>
+
+<p>Now that we have routing working lets add a 404 paeg for&hellip; we all know what a 404 page is for.</p>
+
+<p>First lets create the file. In <code>components</code> directory add a folder called <code>404</code> and inside it a file named <code>NotFound.js</code>.</p>
+
+<p>Let&rsquo;s paste this code for our <code>NotFound.js</code>. It&rsquo;s going to be a lot like the HomePage only with the 404 text on it.</p>
+
+<script src="//gist.github.com/sirjmkitavi/b9a312a8dec2687863ab141605cd5ab1.js"></script>
+
+<p>Now to use the above page lets jump back onto the <code>routes.js</code> and import it there.</p>
+
+<p>First add the import line. Preferrably immediately below the import for <code>HomePage</code></p>
+
+<pre><code class="language-js">import NotFoundPage from './components/404/NotFound';
+</code></pre>
+
+<p>After importing we will have to use the component.</p>
+
+<p>Remember, a 404 page is for any other path accessed that is not indicated in the routes. To do that we will use <code>*</code> which selects any other url that is not in the <code>Switch</code>.</p>
+
+<p>Lets add the line for <code>NotFoundPage</code> in the routes <code>Switch</code></p>
+
+<pre><code class="language-js">&lt;Route path=&quot;*&quot; component={NotFoundPage} /&gt;
+</code></pre>
+
+<p>Try accessing any other path apart from the ones you have in your routes and you should get to the 404 page.</p>
+
+<p><em>We are Done!!</em></p>
+
+<h3 id="happy-coding">Happy Coding.👨🏾‍💻</h3>
 
             </div>
             
