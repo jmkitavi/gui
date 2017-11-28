@@ -3,13 +3,13 @@ title = "Simple Routing in React (Router4)"
 date = 2017-11-27T20:38:51+03:00
 +++
 
-[React](https://reactjs.org/) is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - `react-router v4`. I had already started learning the older one, but had to switch to learn the new one. It wasn't an easy ride, but using the [Router 4 docs](https://reacttraining.com/react-router) I managed to level up. Here is a short guide on **How To Do It**.
+[React](https://reactjs.org/) is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - `react-router v4`. I had already started learning the older one, but had to switch to learn the new one. It wasn't an easy ride, but using the [Router 4 docs](https://reacttraining.com/react-router) I managed to level up. Here is a short guide on **How To Do It 👊🏾**.
 
 ### Getting Started
 
-If you are totally new in React, I'd advise you go through the basics of react like installation and setting up environments. [reactjs.org](https://reactjs.org/) will be very resourcefull, once you install react and set up you ready to start.
+If you are totally new in React, I'd advise you go through the basics of react like installation and setting up environments. [reactjs.org](https://reactjs.org/)👌🏾 will be very resourcefull, once you install react and set up you ready to start.
 
-To get started run:
+To get started run the command below (replace app-name with your preferred name for your project).
 ```sh
 create-react-app app-name
 ```
@@ -155,53 +155,14 @@ app-name
 
 Now let's move all the code in `App.js` to `/home/HomePage.js` and edit it to look like this.
 
-```js
-import React, { Component } from 'react';
-import '../../styles/App.css';
+{{< gist sirjmkitavi b97d003a5bd38fa63ca4fa953fff5fc4 >}}
 
-
-class HomePage extends Component{
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default HomePage;
-```
 Notice we change the class name to **HomePage** and exported it. Also we updated the css import since we moved one folder deeper than we previously were.
 
 Next, we will convert our `App.js` to a parent component that will display children passed to it.
 
-```js
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import '../styles/App.css';
+{{< gist sirjmkitavi 01f5d8638d4bc50f44af39cfcb344504 >}}
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container-fluid">
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-App.PropTypes = {
-  children: PropTypes.object.isRequired
-};
-
-export default App;
-```
 This is how our new `App.js` will look like.
 
 This is important since we will have to pass it in our router file so that it can hold all the other components.
@@ -213,23 +174,8 @@ Lets jump onto the `routes.js` file and see that.
 - Then import HomePage which we will use to test if our routing works.
 - Lastly we will write the code to control the routing.
 
-```js
-import React from 'react';
-import { Route, Switch } from 'react-router';
-import App from './components/App';
-import HomePage from './components/home/HomePage';
 
-const Routes = () => (
-  <App>
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/home" component={HomePage} />
-    </Switch>
-  </App>
-)
-export default Routes;
-
-```
+{{< gist sirjmkitavi 4a47f79e9bea8b6a289a67ddc2db0fed >}}
 
 Ensure to have `react-router` installed.
 ```sh
@@ -263,9 +209,47 @@ render (
   document.getElementById('root')
 );
 ```
+Final `index.js` should be:
 
-This updates our application to start using the `Routes` we created, imported and passed in the `BrowserRouter` component.
+{{< gist sirjmkitavi 1940cf3cedf13919e3c097398cc3556d >}}
+
+
+With this updates our application to start using the `Routes` we created, imported and passed in the `BrowserRouter` component.
 
 With this done, our app should be running successfully and using our newly created Routes.
 
-### Happy Coding.
+Let's jump to the browser and see if whether our routing is working as intended
+
+ - `http://localhost:3000/`,  should display the HomePage as we indicated in the routes file.
+ - `http://localhost:3000/home` should display the HomePage too.
+
+
+### Adding 404 Page
+Now that we have routing working lets add a 404 paeg for... we all know what a 404 page is for.
+
+First lets create the file. In `components` directory add a folder called `404` and inside it a file named `NotFound.js`.
+
+Let's paste this code for our `NotFound.js`. It's going to be a lot like the HomePage only with the 404 text on it.
+
+{{< gist sirjmkitavi b9a312a8dec2687863ab141605cd5ab1 >}}
+
+Now to use the above page lets jump back onto the `routes.js` and import it there.
+
+First add the import line. Preferrably immediately below the import for `HomePage`
+```js
+import NotFoundPage from './components/404/NotFound';
+```
+ After importing we will have to use the component.
+
+ Remember, a 404 page is for any other path accessed that is not indicated in the routes. To do that we will use `*` which selects any other url that is not in the `Switch`.
+ 
+ Lets add the line for `NotFoundPage` in the routes `Switch`
+ ```js
+<Route path="*" component={NotFoundPage} />
+```
+
+Try accessing any other path apart from the ones you have in your routes and you should get to the 404 page.
+
+*We are Done!!*
+
+### Happy Coding.👨🏾‍💻
