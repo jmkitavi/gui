@@ -20,12 +20,12 @@ This will create a react application, with basic files needed.
 
 ```
 app-name
-  ├── node_modules
-  ├── public
-  │   └── favicon.ico
-  │   └── index.html
-  │   └── manifest.json
-  └── src
+    ├── node_modules
+    ├── public
+    │   └── favicon.ico
+    │   └── index.html
+    │   └── manifest.json
+    └── src
       └── App.css
       └── App.js
       └── App.test.js
@@ -33,9 +33,9 @@ app-name
       └── index.js
       └── logo.svg
       └── registerServiceWorker.js
-├── package.json
-├── .gitignore
-├── README.md
+    ├── package.json
+    ├── .gitignore
+    ├── README.md
 ```
 
  - `node_modules` - this is where all our node packages go to.
@@ -86,23 +86,23 @@ After creating the folders and moving the files stated above this should be your
 
 ```
 app-name
-  ├── node_modules
-  ├── public
-  │   └── favicon.ico
-  │   └── index.html
-  │   └── manifest.json
-  └── src
-      ├── components
-          └── App.js
-      ├── styles
-          └── App.css
-          └── index.css
-      └── index.js
-      └── logo.svg
-      └── registerServiceWorker.js
-├── package.json
-├── .gitignore
-├── README.md
+    ├── node_modules
+    ├── public
+    │   └── favicon.ico
+    │   └── index.html
+    │   └── manifest.json
+    └── src
+        ├── components
+            └── App.js
+        ├── styles
+            └── App.css
+            └── index.css
+        └── index.js
+        └── logo.svg
+        └── registerServiceWorker.js
+    ├── package.json
+    ├── .gitignore
+    ├── README.md
 ```
 
 Due to the few files we moved, we expect to have a few import errors since the import paths have changed.
@@ -253,3 +253,4 @@ Try accessing any other path apart from the ones you have in your routes and you
 *We are Done!!*
 
 ### Happy Coding.👨🏾‍💻
+#   &nbsp;&nbsp;&nbsp;   ❤️
