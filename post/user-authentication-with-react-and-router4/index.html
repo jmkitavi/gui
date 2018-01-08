@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> User Authentication with React and Router4 &middot; Sir JM Kitavi </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://sirjmkitavi.github.io/gui/css/nix.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" id="green-terminal" href="http://sirjmkitavi.ml"/>root@sirjm ~ $</a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="https://sirjmkitavi.github.io/gui/" id="green-terminal" >/home/sirjm</a>
+				</li>
+				
+				
+				<li >
+					<a href="/gui/about" id="green-terminal">~/about</a>
+				</li>
+				
+				
+				<li >
+					<a href="/gui/post" id="green-terminal">~/blog</a>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="container wrapper">
+            <h1><a href="https://sirjmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/">User Authentication with React and Router4</a></h1>
+            <span class="post-date">Jan 8, 2018 </span>
+            <div class="post-content">
+                
+
+<p>This blog will build up from the previous blog about <a href="https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/">simple routing</a> in React. We will use the work done on that blog to build up on and add User Authentication to it. You can find the finished code from the previous blog <a href="https://github.com/sirjmkitavi/simple-routing">here</a> (on my Github 🕶  ).</p>
+
+<p>With the complete set up routes we can begin working on authentication. The method am going to elaborate here is protecting the routes and most of it will be done in the routes file. But to do this we will need the following:</p>
+
+<ul>
+<li>You (to do the work of course)</li>
+<li>Set up routes</li>
+<li>Authetication API</li>
+<li>Implementation (The fun part)</li>
+</ul>
+
+<h3 id="set-up-routes">Set Up Routes</h3>
+
+<p>As we already know, this blog will be using already set up routes, so we won&rsquo;t be going into much details about the routing. To go into the details on setting up the routes visit the blog on <a href="https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/">simple routing</a> or just grab the complete code from <a href="https://github.com/sirjmkitavi/simple-routing">here</a>.</p>
+
+<p>To get started with this all you need to do is:</p>
+
+<ol>
+<li><p><strong>Grab the code from Github.</strong></p>
+
+<ul>
+<li><code>git clone https://github.com/sirjmkitavi/simple-routing basic-auth</code>
+This will clone the <code>simple-routing</code> repo but rename it to <code>basic-auth</code>.</li>
+</ul></li>
+
+<li><p><strong>Clean up Cloned code</strong></p>
+
+<ul>
+<li>Delete github files. If you want to host your code in github you&rsquo;ll need to delete the github files cloned. Can be done by simply running <code>rm -rf .git</code> in the working directory.</li>
+<li>In <code>package.json</code> edit the name from <code>simple-routing</code> to <code>basic-auth</code> or whatever 🤷 .</li>
+</ul></li>
+
+<li><p><strong>Install pakcages</strong></p>
+
+<ul>
+<li>Lastly install the packages needed. Simply <code>npm i</code></li>
+</ul></li>
+</ol>
+
+<p>With that done you should have a perfectly working Simple Routing application, then we are good to go. To check it run <code>npm start</code>.</p>
+
+<h3 id="authentication-api">Authentication API</h3>
+
+<p>I had a hard time trying to choose an API from the countless availbale options, so I decided to use one of my own. I chose a  <a href="https://github.com/sirjmkitavi/bucketlist-api">bucketlist api</a> I made a while back.</p>
+
+<p>This was a favourable options since I got to play around with it as I played around with React. The API is in Python/Flask and implements user authentication using Json Web Tokens.</p>
+
+<p>I have hosted the api on heroku at <code>http://kitavi-bucketlist.herokuapp.com</code>. You can go through the documentation in the <a href="https://github.com/sirjmkitavi/bucketlist-api/blob/master/README.md">README</a>.</p>
+
+<p>As usual find all the code to the same on my <a href="https://github.com/sirjmkitavi/bucketlist-api">Github</a>.</p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>Let&rsquo;s get started with the fun part.</p>
+
+<h4 id="1-getting-started">1. Getting started</h4>
+
+<p>First off we will need bootstrap to style our forms and all that, so lets get it over with first.</p>
+
+<p>Run command below to add bootstrap to your project,</p>
+
+<pre><code>npm i bootstrap
+</code></pre>
+
+<p>then, open <code>basic-auth/src/index.js</code> and add the bootstrap import so that it&rsquo;s available in the whole project.</p>
+
+<pre><code class="language-js">import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+</code></pre>
+
+<p>Also we will need a simple Header to help with the Navigation.</p>
+
+<p>Create <code>components/common/Header.js</code></p>
+
+<pre><code>cd basic-auth/src/components
+mkdir common
+cd common
+touch Header.js
+</code></pre>
+
+<p>add the following lines of code to display our Header
+<script src="//gist.github.com/sirjmkitavi/9f34dbdc88242af5aadee6b83a7efc7f.js"></script></p>
+
+<p>Note: We have not set up the <code>/signup</code>, <code>/login</code> and <code>/logout</code> routes indicated in the header but we will be setting them up in a few.</p>
+
+<p>To utilise the Header we just created, let&rsquo;s import it to the <code>App.js</code> file.</p>
+
+<pre><code class="language-js">import Header from './common/Header'; 
+</code></pre>
+
+<p>Then add the component just above <code>{this.props.children}</code></p>
+
+<pre><code class="language-js">...
+  &lt;Header /&gt;
+  {this.props.children}
+...
+</code></pre>
+
+<h4 id="2-sign-up-form">2. Sign Up Form</h4>
+
+<p>To get started on any authentication you need to have a sign up form to create users.</p>
+
+<p>This is going to start out as a simple component and we will continue building up on it. In <code>basic-auth/src/components</code> let&rsquo;s add a directory to hold our user related components. Create the directory <code>components/user</code>.</p>
+
+<blockquote>
+<p><em>It is a good practice to put related components in same directory.</em></p>
+</blockquote>
+
+<p>We will then go into the directory and add our <code>components/user/SignUp.js</code> file.</p>
+
+<p>Refer to the previous example on how to create the directory and file, or use other available options like your text editor.</p>
+
+<p>Open up the <code>SignUp.js</code> file to get started with creating the Sign Up form.</p>
+
+<p>We will forst have the basic display for the form, the we can work our way up from there on the functionality.</p>
+
+<script src="//gist.github.com/sirjmkitavi/f0c1bc83a225c221e842b656b8cbfa6c.js"></script>
+
+<p>To display what we just created, we will have to add a route to the componet in our routes file. You first import the SignUp component to <code>routes.js</code>. The add it&rsquo;s route to the <code>Switch</code> component.</p>
+
+<pre><code class="language-js">import SignUp from './components/user/SignUp';
+
+...
+  &lt;Route exact path=&quot;/signup&quot; component={SignUp} /&gt;
+
+</code></pre>
+
+<p>With that navigating to <code>http://localhost:3000/signup</code> should display our function less Sign Up Form 👏🏾 .</p>
+
+<h4 id="3-sign-up-functionality">3. Sign Up Functionality</h4>
+
+<p>To add functionality to our Sign Up form we&rsquo;ll first need to add two functions to the component.</p>
+
+<ol>
+<li><p><strong>handleChange</strong></p>
+
+<ul>
+<li>This will handle any change made in the input and save them to state</li>
+</ul></li>
+
+<li><p><strong>handleSubmit</strong></p>
+
+<ul>
+<li>This will handle submitting the request to the API</li>
+</ul></li>
+</ol>
+
+<h5 id="handlechange">| handleChange</h5>
+
+<p>Like mentioned above, this is what will handle the <code>onChange</code> functionality for the forms.</p>
+
+<p>The handleChange is pretty simple, all you need to do is add the state for both the username and password that will be saved.</p>
+
+<script src="//gist.github.com/sirjmkitavi/c50d664d732b72a4d3ddf60f78e65fb1.js"></script>
+
+<p>1️⃣ The constructor method is a special method for creating and initializing an object created with a class. It assigns the initial <code>this.state</code></p>
+
+<p>2️⃣ Then we initialise <code>state</code></p>
+
+<p>3️⃣ Then write <code>handleChange</code> functionality. Which is basically, get the <code>event</code> and update values to respective state.</p>
+
+<p>4️⃣ Ensure to <code>bind</code> the handleChange funtion.</p>
+
+<p>5️⃣ Then you have to use the function in the <code>onChange</code> event listener for both username and password fields.</p>
+
+<h5 id="handlesubmit-sign-up">| handleSubmit  (sign up)</h5>
+
+<p>After filling the required fields the user will require to submit the form so that the request is sent to the api for processing. This is where the <code>handleSubmit</code> function comes in.</p>
+
+<p>For the API interactions it&rsquo;s always advisable to have a file containing all functions that call the API. So we will create an <code>/src/api/</code> directory to hold all the files we will need for interactions with the API.</p>
+
+<p>Then add <code>userApi.js</code> file, inside here we will write the function to interact with the API when user wants to sign up.</p>
+
+<script src="//gist.github.com/sirjmkitavi/c50e61ac9876a467db42dbbe5ba3cb4b.js"></script>
+
+<ul>
+<li>We are importing <code>axios</code> I library used to handle HTTP requests. So ensure to add it <code>npm i axios</code></li>
+<li>The <code>signupUrl</code> is the url to which the sign up request will be posted.</li>
+<li><code>signUpUser</code> function takes in username and password which are posted to API using <code>axios.post</code> method, receiving a response of successfull or failed user creation.</li>
+</ul>
+
+<p><code>handleSubmit</code> will take in the values saved to state by <code>handleChange</code> and send the request to the api.</p>
+
+<h2 id="hahahugoshortcode-5hbhb"><script src="//gist.github.com/sirjmkitavi/a1303c38050905250cf953e04805c791.js"></script></h2>
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+
+<p>With this the user should be able to add a username and password and when successfull get redirected to the <code>/login</code> page where they can login in with the credentials they have given. <strong>Note:</strong> Since we do not have a LogIn page created yet it will display the 404 page.</p>
+
+<p>With that we can now move on to the Login Page.</p>
+
+<h4 id="4-log-in-form">4. Log In Form</h4>
+
+<p>This will be very much similar to the Sign Up Form since it providing username and password as is in the Sign Up Form, and then submitting it to the API.</p>
+
+<script src="//gist.github.com/sirjmkitavi/b08e2b2f7a4ff82e4a145bb60a090afa.js"></script>
+
+<ul>
+<li>I have included <code>handleChange</code> since it&rsquo;s the similar to the one in Sign Up.</li>
+</ul>
+
+<p>As done earlier to be able to see this we will have to import the component to <code>routes.js</code> and add it&rsquo;s route to the <code>Switch</code> component.</p>
+
+<pre><code class="language-js">import LogIn from './components/user/LogIn';
+...
+  &lt;Route exact path=&quot;/login&quot; component={LogIn}&gt;
+</code></pre>
+
+<p>Then navigate to <code>http://localhost:3000/login</code> to view the created Log In form.</p>
+
+<h4 id="5-log-in-functionality">5. Log In Functionality</h4>
+
+<p>Since we already worked on <code>handleChange</code> we are going to focus this to <code>handleSubmit</code> for Log In since it&rsquo;s the only major change between the Sign Up and Log In functionality.</p>
+
+<h5 id="handlesubmit-log-in">| handleSubmit  (log in)</h5>
+
+<p>We will first go to the <code>userApi.js</code> file we created and add the code for handling login requests.</p>
+
+<script src="//gist.github.com/sirjmkitavi/9b127222a04a66412bb9d504d3c1475f.js"></script>
+
+<p>Now let&rsquo;s jump to the <code>LogIn.js</code> and add our <code>handleSubmit</code> and bind it to <code>onSubmit</code> for the Log in form.</p>
+
+<script src="//gist.github.com/sirjmkitavi/c1835d0eafd68cae1b4af8a3b7d2be1e.js"></script>
+
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+
+<h4 id="6-protected-routes">6. Protected Routes</h4>
+
+<p>Authenticating users would not mean much if there isn&rsquo;t something being pretected. So let&rsquo;s implement Route Protection to prevent users that are not logged in from viewing certain routes.</p>
+
+<p>This is best implemented when you have protected content that you only want logged in users to see. But since this is just a simple blog, we will not be creating any content.</p>
+
+<p>What we will do to demonstrate protected routes:</p>
+
+<ul>
+<li>Make <code>/home</code> a protected route only visible to logged in users.</li>
+<li>Users that are not logged in will be redirected to <code>/login</code> when they try to access the protected route.</li>
+</ul>
+
+<p>To get started we will need a function to check if the user is logged in or not. This function will check if user is logged in and return a boolean of either true or false.</p>
+
+<p>Then, in Router 4, Protected Routes implementation are best done by building another component that wraps the <code>Route</code> component in itself. This is where we will call the function to check if user is logged in, then re and redirection if user is not logged in.</p>
+
+<p>Let&rsquo;s write the code then.</p>
+
+<script src="//gist.github.com/sirjmkitavi/384834b0c78a2643917c4703f9a95563.js"></script>
+
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+
+<p>Now lets edit our <code>/home</code> route to use the <strong>PrivateRoute</strong> we just created.</p>
+
+<pre><code class="language-js">  &lt;PrivateRoute exact path=&quot;/home&quot; component={HomePage} /&gt;
+</code></pre>
+
+<p>Now if a user that is not logged in tries to access the route <code>/home</code> they will get redirected to the <code>/login</code> route so they can first log in.</p>
+
+<p>You might have a problem seeing that since most likely you had logged in, which brings us to the last part of any authentication process. Logging Out.</p>
+
+<h4 id="7-log-out">7. Log Out</h4>
+
+<p>This should be the simplest component we work on.</p>
+
+<p>As seen earlier we are saving the user token in local storage, which we also check to see if a user is logged in or not. So what we will do for log out is basically clear out the user token saved in local storage. This will log the user out and redirect them to the <code>/login</code> route.</p>
+
+<script src="//gist.github.com/sirjmkitavi/29ca0f8e7012963f8a85492fa4137b33.js"></script>
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+
+<p>Then we will finish by adding the component to the <code>routes.js</code> file.</p>
+
+<pre><code class="language-js">import LogOut from './components/user/LogOut';
+...
+   &lt;Route exact path=&quot;/logout&quot; component={LogOut} /&gt;
+</code></pre>
+
+<p>And with that we have fully set up user authentication using React and Router 4. It definitely was long. It will help a lot if you take a few more peeps to the React and Router 4 documentations to help with understanding them more.</p>
+
+<p>Thank You&hellip; Happy Learning!!</p>
+
+            </div>
+            
+            <div class="post-comments">
+                <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "github-pages-2" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+            <div class="push"></div>
+        </div>
+        <footer class="footer text-center">
+<p>Copyright &copy; 2018 Kitavi Joseph
+</p>
+</footer>
+
+    </body>

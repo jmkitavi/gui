@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>User Authentication with React and Router4</title>
+      <link>https://sirjmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/</link>
+      <pubDate>Mon, 08 Jan 2018 21:18:19 +0300</pubDate>
+      
+      <guid>https://sirjmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/</guid>
+      <description>This blog will build up from the previous blog about simple routing in React. We will use the work done on that blog to build up on and add User Authentication to it. You can find the finished code from the previous blog here (on my Github 🕶 ).
+With the complete set up routes we can begin working on authentication. The method am going to elaborate here is protecting the routes and most of it will be done in the routes file.</description>
+    </item>
+    
+    <item>
       <title>Simple Routing in React (Router4)</title>
       <link>https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/</link>
       <pubDate>Mon, 27 Nov 2017 20:38:51 +0300</pubDate>
