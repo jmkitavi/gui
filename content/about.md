@@ -7,7 +7,7 @@ date = 2017-11-09T12:15:19+03:00
 nocomments = true
 +++
 
-![Wait, Just Wait](https://raw.githubusercontent.com/sirjmkitavi/gui/master/static/finding-me.gif)
+![Wait, Just Wait](https://raw.githubusercontent.com/jmkitavi/gui/master/static/finding-me.gif)
 
 ### Am still creating myself.
 

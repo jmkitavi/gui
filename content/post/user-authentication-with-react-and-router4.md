@@ -3,7 +3,7 @@ title = "User Authentication with React and Router4"
 date = 2018-01-08T21:18:19+03:00
 +++
 
-This blog will build up from the previous blog about [simple routing](https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/) in React. We will use the work done on that blog to build up on and add User Authentication to it. You can find the finished code from the previous blog [here](https://github.com/sirjmkitavi/simple-routing) (on my Github 🕶  ).
+This blog will build up from the previous blog about [simple routing](https://jmkitavi.github.io/gui/post/simple-routing-in-react/) in React. We will use the work done on that blog to build up on and add User Authentication to it. You can find the finished code from the previous blog [here](https://github.com/jmkitavi/simple-routing) (on my Github 🕶  ).
 
 With the complete set up routes we can begin working on authentication. The method am going to elaborate here is protecting the routes and most of it will be done in the routes file. But to do this we will need the following:
 
@@ -13,12 +13,12 @@ With the complete set up routes we can begin working on authentication. The meth
 - Implementation (The fun part)
 
 ### Set Up Routes
-As we already know, this blog will be using already set up routes, so we won't be going into much details about the routing. To go into the details on setting up the routes visit the blog on [simple routing](https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/) or just grab the complete code from [here](https://github.com/sirjmkitavi/simple-routing).
+As we already know, this blog will be using already set up routes, so we won't be going into much details about the routing. To go into the details on setting up the routes visit the blog on [simple routing](https://jmkitavi.github.io/gui/post/simple-routing-in-react/) or just grab the complete code from [here](https://github.com/jmkitavi/simple-routing).
 
 To get started with this all you need to do is:
 
 1. **Grab the code from Github.**
- - `git clone https://github.com/sirjmkitavi/simple-routing basic-auth`
+ - `git clone https://github.com/jmkitavi/simple-routing basic-auth`
  This will clone the `simple-routing` repo but rename it to `basic-auth`.
 
 2. **Clean up Cloned code**
@@ -31,13 +31,13 @@ To get started with this all you need to do is:
 With that done you should have a perfectly working Simple Routing application, then we are good to go. To check it run `npm start`.
 
 ### Authentication API
-I had a hard time trying to choose an API from the countless availbale options, so I decided to use one of my own. I chose a  [bucketlist api](https://github.com/sirjmkitavi/bucketlist-api) I made a while back.
+I had a hard time trying to choose an API from the countless availbale options, so I decided to use one of my own. I chose a  [bucketlist api](https://github.com/jmkitavi/bucketlist-api) I made a while back.
 
 This was a favourable options since I got to play around with it as I played around with React. The API is in Python/Flask and implements user authentication using Json Web Tokens.
 
-I have hosted the api on heroku at `http://kitavi-bucketlist.herokuapp.com`. You can go through the documentation in the [README](https://github.com/sirjmkitavi/bucketlist-api/blob/master/README.md).
+I have hosted the api on heroku at `http://kitavi-bucketlist.herokuapp.com`. You can go through the documentation in the [README](https://github.com/jmkitavi/bucketlist-api/blob/master/README.md).
 
-As usual find all the code to the same on my [Github](https://github.com/sirjmkitavi/bucketlist-api). 
+As usual find all the code to the same on my [Github](https://github.com/jmkitavi/bucketlist-api). 
 
 
 ### Implementation
@@ -68,7 +68,7 @@ touch Header.js
 ```
 
 add the following lines of code to display our Header
-{{< gist sirjmkitavi 9f34dbdc88242af5aadee6b83a7efc7f >}}
+{{< gist jmkitavi 9f34dbdc88242af5aadee6b83a7efc7f >}}
 
 Note: We have not set up the `/signup`, `/login` and `/logout` routes indicated in the header but we will be setting them up in a few.
 
@@ -100,7 +100,7 @@ Open up the `SignUp.js` file to get started with creating the Sign Up form.
 
 We will forst have the basic display for the form, the we can work our way up from there on the functionality.
 
-{{< gist sirjmkitavi f0c1bc83a225c221e842b656b8cbfa6c >}}
+{{< gist jmkitavi f0c1bc83a225c221e842b656b8cbfa6c >}}
 
 To display what we just created, we will have to add a route to the componet in our routes file. You first import the SignUp component to `routes.js`. The add it's route to the `Switch` component.
 
@@ -129,7 +129,7 @@ Like mentioned above, this is what will handle the `onChange` functionality for 
 
 The handleChange is pretty simple, all you need to do is add the state for both the username and password that will be saved.
 
-{{< gist sirjmkitavi c50d664d732b72a4d3ddf60f78e65fb1 >}}
+{{< gist jmkitavi c50d664d732b72a4d3ddf60f78e65fb1 >}}
 
   1️⃣ The constructor method is a special method for creating and initializing an object created with a class. It assigns the initial `this.state`
 
@@ -148,7 +148,7 @@ For the API interactions it's always advisable to have a file containing all fun
 
 Then add `userApi.js` file, inside here we will write the function to interact with the API when user wants to sign up.
 
-{{< gist sirjmkitavi c50e61ac9876a467db42dbbe5ba3cb4b >}}
+{{< gist jmkitavi c50e61ac9876a467db42dbbe5ba3cb4b >}}
 
 - We are importing `axios` I library used to handle HTTP requests. So ensure to add it `npm i axios`
 - The `signupUrl` is the url to which the sign up request will be posted.
@@ -156,7 +156,7 @@ Then add `userApi.js` file, inside here we will write the function to interact w
 
 `handleSubmit` will take in the values saved to state by `handleChange` and send the request to the api.
 
-{{< gist sirjmkitavi a1303c38050905250cf953e04805c791 >}}
+{{< gist jmkitavi a1303c38050905250cf953e04805c791 >}}
 - 
 - 
 - 
@@ -168,7 +168,7 @@ With that we can now move on to the Login Page.
 #### 4. Log In Form
 This will be very much similar to the Sign Up Form since it providing username and password as is in the Sign Up Form, and then submitting it to the API.
 
-{{< gist sirjmkitavi b08e2b2f7a4ff82e4a145bb60a090afa >}}
+{{< gist jmkitavi b08e2b2f7a4ff82e4a145bb60a090afa >}}
 
 - I have included `handleChange` since it's the similar to the one in Sign Up.
 
@@ -188,11 +188,11 @@ Since we already worked on `handleChange` we are going to focus this to `handleS
 ##### | handleSubmit  (log in)
 We will first go to the `userApi.js` file we created and add the code for handling login requests.
 
-{{< gist sirjmkitavi 9b127222a04a66412bb9d504d3c1475f >}}
+{{< gist jmkitavi 9b127222a04a66412bb9d504d3c1475f >}}
 
 Now let's jump to the `LogIn.js` and add our `handleSubmit` and bind it to `onSubmit` for the Log in form.
 
-{{< gist sirjmkitavi c1835d0eafd68cae1b4af8a3b7d2be1e >}}
+{{< gist jmkitavi c1835d0eafd68cae1b4af8a3b7d2be1e >}}
 
 - 
 - 
@@ -214,7 +214,7 @@ Then, in Router 4, Protected Routes implementation are best done by building ano
 
 Let's write the code then.
 
-{{< gist sirjmkitavi 384834b0c78a2643917c4703f9a95563 >}}
+{{< gist jmkitavi 384834b0c78a2643917c4703f9a95563 >}}
 
 - 
 - 
@@ -235,7 +235,7 @@ This should be the simplest component we work on.
 
 As seen earlier we are saving the user token in local storage, which we also check to see if a user is logged in or not. So what we will do for log out is basically clear out the user token saved in local storage. This will log the user out and redirect them to the `/login` route.
 
-{{< gist sirjmkitavi 29ca0f8e7012963f8a85492fa4137b33 >}}
+{{< gist jmkitavi 29ca0f8e7012963f8a85492fa4137b33 >}}
 
 - 
 - 

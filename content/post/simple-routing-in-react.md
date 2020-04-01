@@ -155,13 +155,13 @@ app-name
 
 Now let's move all the code in `App.js` to `/home/HomePage.js` and edit it to look like this.
 
-{{< gist sirjmkitavi b97d003a5bd38fa63ca4fa953fff5fc4 >}}
+{{< gist jmkitavi b97d003a5bd38fa63ca4fa953fff5fc4 >}}
 
 Notice we change the class name to **HomePage** and exported it. Also we updated the css import since we moved one folder deeper than we previously were.
 
 Next, we will convert our `App.js` to a parent component that will display children passed to it.
 
-{{< gist sirjmkitavi 01f5d8638d4bc50f44af39cfcb344504 >}}
+{{< gist jmkitavi 01f5d8638d4bc50f44af39cfcb344504 >}}
 
 This is how our new `App.js` will look like.
 
@@ -175,7 +175,7 @@ Lets jump onto the `routes.js` file and see that.
 - Lastly we will write the code to control the routing.
 
 
-{{< gist sirjmkitavi 4a47f79e9bea8b6a289a67ddc2db0fed >}}
+{{< gist jmkitavi 4a47f79e9bea8b6a289a67ddc2db0fed >}}
 
 Ensure to have `react-router` installed.
 ```sh
@@ -211,7 +211,7 @@ render (
 ```
 Final `index.js` should be:
 
-{{< gist sirjmkitavi 1940cf3cedf13919e3c097398cc3556d >}}
+{{< gist jmkitavi 1940cf3cedf13919e3c097398cc3556d >}}
 
 
 With this updates our application to start using the `Routes` we created, imported and passed in the `BrowserRouter` component.
@@ -231,7 +231,7 @@ First lets create the file. In `components` directory add a folder called `404` 
 
 Let's paste this code for our `NotFound.js`. It's going to be a lot like the HomePage only with the 404 text on it.
 
-{{< gist sirjmkitavi b9a312a8dec2687863ab141605cd5ab1 >}}
+{{< gist jmkitavi b9a312a8dec2687863ab141605cd5ab1 >}}
 
 Now to use the above page lets jump back onto the `routes.js` and import it there.
 
