@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.30.2" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://sirjmkitavi.github.io/gui/css/nix.css">
+<link rel="stylesheet" href="https://jmkitavi.github.io/gui/css/nix.css">
 
 
 <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
@@ -41,14 +41,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" id="green-terminal" href="http://sirjmkitavi.ml"/>root@sirjm ~ $</a>
+			<a class="navbar-brand" id="green-terminal" href="http://jmkitavi.ml"/>root@sirjm ~ $</a>
 		</div>
 
 		
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="https://sirjmkitavi.github.io/gui/" id="green-terminal" >/home/sirjm</a>
+					<a href="https://jmkitavi.github.io/gui/" id="green-terminal" >/home/sirjm</a>
 				</li>
 				
 				
@@ -69,26 +69,16 @@
 </header>
 
         <div class="container wrapper">
-            <h1><a href="https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/">Simple Routing in React (Router4)</a></h1>
+            <h1><a href="https://jmkitavi.github.io/gui/post/simple-routing-in-react/">Simple Routing in React (Router4)</a></h1>
             <span class="post-date">Nov 27, 2017 </span>
             <div class="post-content">
-                
-
-<p><a href="https://reactjs.org/">React</a> is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - <code>react-router v4</code>. I had already started learning the older one, but had to switch to learn the new one. It wasn&rsquo;t an easy ride, but using the <a href="https://reacttraining.com/react-router">Router 4 docs</a> I managed to level up. Here is a short guide on <strong>How To Do It 👊🏾</strong>.</p>
-
+                <p><a href="https://reactjs.org/">React</a> is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - <code>react-router v4</code>. I had already started learning the older one, but had to switch to learn the new one. It wasn&rsquo;t an easy ride, but using the <a href="https://reacttraining.com/react-router">Router 4 docs</a> I managed to level up. Here is a short guide on <strong>How To Do It 👊🏾</strong>.</p>
 <h3 id="getting-started">Getting Started</h3>
-
 <p>If you are totally new in React, I&rsquo;d advise you go through the basics of react like installation and setting up environments. <a href="https://reactjs.org/">reactjs.org</a>👌🏾 will be very resourcefull, once you install react and set up you ready to start.</p>
-
 <p>To get started run the command below (replace app-name with your preferred name for your project).</p>
-
-<pre><code class="language-sh">create-react-app app-name
-</code></pre>
-
-<p>Check out <a href="https://reactjs.org/docs/installation.html#creating-a-new-application">Creating React App</a> for more details on the above command.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">create-react-app app-name
+</code></pre></div><p>Check out <a href="https://reactjs.org/docs/installation.html#creating-a-new-application">Creating React App</a> for more details on the above command.</p>
 <p>This will create a react application, with basic files needed.</p>
-
 <pre><code>app-name
     ├── node_modules
     ├── public
@@ -106,9 +96,7 @@
     ├── package.json
     ├── .gitignore
     ├── README.md
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li><code>node_modules</code> - this is where all our node packages go to.</li>
 <li><code>public</code> - contains root html file, this is where our bundled output is rendered from.</li>
 <li><code>src</code> - where all our code resides, we&rsquo;ll spend most of the time here.</li>
@@ -116,47 +104,24 @@
 <li><code>.gitinore</code> - important especially for git (version control), it indicates files to ignore.</li>
 <li><code>README.md</code> - well like it says, READ ME&hellip; should have detailed information about project.</li>
 </ul>
-
 <p>To run the app and see your progress.</p>
-
 <p>Go into your project folder</p>
-
-<pre><code class="language-sh">cd app-name
-</code></pre>
-
-<p>Then run</p>
-
-<pre><code class="language-sh">npm start
-</code></pre>
-
-<p>or</p>
-
-<pre><code class="language-sh">yarn start
-</code></pre>
-
-<p>Visit <code>http://localhost:3000/</code> to access the running application.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd app-name
+</code></pre></div><p>Then run</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm start
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">yarn start
+</code></pre></div><p>Visit <code>http://localhost:3000/</code> to access the running application.</p>
 <h3 id="re-structuring-files">Re-Structuring files</h3>
-
 <p>Now that we have this running lets re-structure our files. This helps a lot as your app keeps growing to have similar files put together.</p>
-
 <p>We won&rsquo;t be doing any testing now so its safe to get rid of the test files. <code>*.test.js</code>.</p>
-
 <p>Well start by adding a folder named <code>components</code> in the <code>app-name/src</code> folder.</p>
-
 <p>You can create by running this in your working directory.</p>
-
-<pre><code class="language-sh">mkdir src/components
-</code></pre>
-
-<p>After creating the folder <code>app-name/src/components</code> move the file <code>App.js</code> to the folder.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir src/components
+</code></pre></div><p>After creating the folder <code>app-name/src/components</code> move the file <code>App.js</code> to the folder.</p>
 <p>Also create <code>styles</code> folder in <code>src</code>, this will contain the <code>*.css</code> files.</p>
-
 <p><strong>Note:</strong> <em>You will definitely have errors, we will take care of those soon.</em></p>
-
 <p>After creating the folders and moving the files stated above this should be your new folder structure:</p>
-
 <pre><code>app-name
     ├── node_modules
     ├── public
@@ -175,47 +140,30 @@
     ├── package.json
     ├── .gitignore
     ├── README.md
-</code></pre>
-
-<p>Due to the few files we moved, we expect to have a few import errors since the import paths have changed.</p>
-
+</code></pre><p>Due to the few files we moved, we expect to have a few import errors since the import paths have changed.</p>
 <p>Simple to fix, all we have to do is change the paths to reflect their new locations. lets do that.</p>
-
 <ul>
 <li>Delete <code>logo.svg</code> we won&rsquo;t be using it either, remove it&rsquo;s imports in <code>App.js</code>. Remember to delete this line of code too. <code>&lt;img src={logo}...</code></li>
 <li>Update the css import in <code>App.js</code> to <code>import '../styles/App.css'</code> because of the new location of the css file</li>
 <li>Update the css import in <code>index.js</code> to <code>import './styles/index.css'</code></li>
 <li>Also update import for <code>App.js</code> in <code>index.js</code> to <code>import App from './components/App'</code></li>
 </ul>
-
 <p><strong>Note:</strong></p>
-
 <ul>
 <li><em>the <code>../</code> and <code>./</code> are used to move up folders, <code>../</code> moves back one folder i.e if you are in <code>src/components</code> it takes you back to <code>src</code>.</em></li>
 <li><em><code>./</code> checks current directory e.g for <code>index.js</code> since <code>styles</code> folder is in same directory we used <code>./styles/...</code></em></li>
 </ul>
-
 <p>With those few fixes out app should be back up and running.</p>
-
 <p>Lets go to <code>http://localhost:3000/</code> to make sure of the same.</p>
-
 <h3 id="setting-up-routing">Setting Up Routing</h3>
-
 <p>To set up routing lets first create a <strong>HomePage</strong> for our application.</p>
-
 <p>Create a new folder in <code>components</code> named <code>home</code> and inside it a new file <code>HomePage.js</code></p>
-
-<pre><code class="language-sh">mkdir home
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir home
 cd home
 touch HomePage.js
-</code></pre>
-
-<p>or use your favourite editor to create the folder and file inside the folder.</p>
-
+</code></pre></div><p>or use your favourite editor to create the folder and file inside the folder.</p>
 <p>Also create a <code>routes.js</code> file in the <code>src</code> directory.</p>
-
 <p>After creating this your files in <code>/src/</code> should look like below.</p>
-
 <pre><code>app-name
   └── src
       ├── components
@@ -228,121 +176,75 @@ touch HomePage.js
       └── index.js
       └── registerServiceWorker.js
       └── routes.js
-</code></pre>
-
-<p>Now let&rsquo;s move all the code in <code>App.js</code> to <code>/home/HomePage.js</code> and edit it to look like this.</p>
-
-<script src="//gist.github.com/sirjmkitavi/b97d003a5bd38fa63ca4fa953fff5fc4.js"></script>
+</code></pre><p>Now let&rsquo;s move all the code in <code>App.js</code> to <code>/home/HomePage.js</code> and edit it to look like this.</p>
+<script type="application/javascript" src="https://gist.github.com/jmkitavi/b97d003a5bd38fa63ca4fa953fff5fc4.js"></script>
 
 <p>Notice we change the class name to <strong>HomePage</strong> and exported it. Also we updated the css import since we moved one folder deeper than we previously were.</p>
-
 <p>Next, we will convert our <code>App.js</code> to a parent component that will display children passed to it.</p>
-
-<script src="//gist.github.com/sirjmkitavi/01f5d8638d4bc50f44af39cfcb344504.js"></script>
+<script type="application/javascript" src="https://gist.github.com/jmkitavi/01f5d8638d4bc50f44af39cfcb344504.js"></script>
 
 <p>This is how our new <code>App.js</code> will look like.</p>
-
 <p>This is important since we will have to pass it in our router file so that it can hold all the other components.</p>
-
 <p>Lets jump onto the <code>routes.js</code> file and see that.</p>
-
 <ul>
 <li>So as usual for any React file we will import react. Then move on to importing what we need from <code>react-router</code>. Ensure you are using <code>router4</code>.</li>
 <li>Then we will import <code>App.js</code> like I mentioned earlier.</li>
 <li>Then import HomePage which we will use to test if our routing works.</li>
 <li>Lastly we will write the code to control the routing.</li>
 </ul>
-
-<script src="//gist.github.com/sirjmkitavi/4a47f79e9bea8b6a289a67ddc2db0fed.js"></script>
+<script type="application/javascript" src="https://gist.github.com/jmkitavi/4a47f79e9bea8b6a289a67ddc2db0fed.js"></script>
 
 <p>Ensure to have <code>react-router</code> installed.</p>
-
-<pre><code class="language-sh">yarn add react-router
-</code></pre>
-
-<p>Be sure to check documentation for React Router 4 for what most of this is doing.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">yarn add react-router
+</code></pre></div><p>Be sure to check documentation for React Router 4 for what most of this is doing.</p>
 <p>But in a nut shell after the imports we create a function <code>Routes</code> that takes in the <code>App</code> and <code>Switch</code> which basically switches between the different components you will have depending on the url.</p>
-
 <p>I used both <code>/</code> and <code>/home</code> as the urls for our <code>HomePage</code> component.</p>
-
 <p>Now that we have the routes file ready let&rsquo;s jump into the <code>index.js</code> (entry point of our application) and use the routes we just created.</p>
-
 <p>The major difference here will be in the <code>render</code> function but first remember to import the following as we will need them.</p>
-
-<pre><code class="language-js">import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
-</code></pre>
-
-<p>Ensure to have <code>react-router-dom</code> installed.</p>
-
-<pre><code class="language-sh">yarn add react-router-dom
-</code></pre>
-
-<p>Then update your render function to the following.</p>
-
-<pre><code class="language-js">render (
-  &lt;BrowserRouter&gt;
-    &lt;Routes /&gt;
-  &lt;/BrowserRouter&gt;,
-  document.getElementById('root')
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Routes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./routes&#39;</span>;
+</code></pre></div><p>Ensure to have <code>react-router-dom</code> installed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">yarn add react-router-dom
+</code></pre></div><p>Then update your render function to the following.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">render</span> (
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">BrowserRouter</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Routes</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/BrowserRouter&gt;,</span>
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
 );
-</code></pre>
-
-<p>Final <code>index.js</code> should be:</p>
-
-<script src="//gist.github.com/sirjmkitavi/1940cf3cedf13919e3c097398cc3556d.js"></script>
+</code></pre></div><p>Final <code>index.js</code> should be:</p>
+<script type="application/javascript" src="https://gist.github.com/jmkitavi/1940cf3cedf13919e3c097398cc3556d.js"></script>
 
 <p>With this updates our application to start using the <code>Routes</code> we created, imported and passed in the <code>BrowserRouter</code> component.</p>
-
 <p>With this done, our app should be running successfully and using our newly created Routes.</p>
-
 <p>Let&rsquo;s jump to the browser and see if whether our routing is working as intended</p>
-
 <ul>
 <li><code>http://localhost:3000/</code>,  should display the HomePage as we indicated in the routes file.</li>
 <li><code>http://localhost:3000/home</code> should display the HomePage too.</li>
 </ul>
-
 <h3 id="adding-404-page">Adding 404 Page</h3>
-
 <p>Now that we have routing working lets add a 404 paeg for&hellip; we all know what a 404 page is for.</p>
-
 <p>First lets create the file. In <code>components</code> directory add a folder called <code>404</code> and inside it a file named <code>NotFound.js</code>.</p>
-
 <p>Let&rsquo;s paste this code for our <code>NotFound.js</code>. It&rsquo;s going to be a lot like the HomePage only with the 404 text on it.</p>
-
-<script src="//gist.github.com/sirjmkitavi/b9a312a8dec2687863ab141605cd5ab1.js"></script>
+<script type="application/javascript" src="https://gist.github.com/jmkitavi/b9a312a8dec2687863ab141605cd5ab1.js"></script>
 
 <p>Now to use the above page lets jump back onto the <code>routes.js</code> and import it there.</p>
-
 <p>First add the import line. Preferrably immediately below the import for <code>HomePage</code></p>
-
-<pre><code class="language-js">import NotFoundPage from './components/404/NotFound';
-</code></pre>
-
-<p>After importing we will have to use the component.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">NotFoundPage</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/404/NotFound&#39;</span>;
+</code></pre></div><p>After importing we will have to use the component.</p>
 <p>Remember, a 404 page is for any other path accessed that is not indicated in the routes. To do that we will use <code>*</code> which selects any other url that is not in the <code>Switch</code>.</p>
-
 <p>Lets add the line for <code>NotFoundPage</code> in the routes <code>Switch</code></p>
-
-<pre><code class="language-js">&lt;Route path=&quot;*&quot; component={NotFoundPage} /&gt;
-</code></pre>
-
-<p>Try accessing any other path apart from the ones you have in your routes and you should get to the 404 page.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">NotFoundPage</span>} <span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>Try accessing any other path apart from the ones you have in your routes and you should get to the 404 page.</p>
 <p><em>We are Done!!</em></p>
-
 <h3 id="happy-coding">Happy Coding.👨🏾‍💻</h3>
-
-<h1 id="nbsp-nbsp-nbsp">&nbsp;&nbsp;&nbsp;   ❤️</h1>
+<h1 id="nbspnbspnbsp---">      ❤️</h1>
 
             </div>
             
             <div class="post-comments">
                 <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -366,7 +268,7 @@ import Routes from './routes';
             <div class="push"></div>
         </div>
         <footer class="footer text-center">
-<p>Copyright &copy; 2018 Kitavi Joseph
+<p>Copyright &copy; 2020 Kitavi Joseph
 </p>
 </footer>
 

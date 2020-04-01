@@ -1,50 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sir JM Kitavi</title>
-    <link>https://sirjmkitavi.github.io/gui/</link>
+    <link>https://jmkitavi.github.io/gui/</link>
     <description>Recent content on Sir JM Kitavi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Nov 2017 12:15:19 +0300</lastBuildDate>
     
-	<atom:link href="https://sirjmkitavi.github.io/gui/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jmkitavi.github.io/gui/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://sirjmkitavi.github.io/gui/about/</link>
+      <link>https://jmkitavi.github.io/gui/about/</link>
       <pubDate>Thu, 09 Nov 2017 12:15:19 +0300</pubDate>
       
-      <guid>https://sirjmkitavi.github.io/gui/about/</guid>
-      <description> Am still creating myself. Watch this space for more on what I make out of me. </description>
+      <guid>https://jmkitavi.github.io/gui/about/</guid>
+      <description>Am still creating myself. Watch this space for more on what I make out of me. </description>
     </item>
     
     <item>
       <title>User Authentication with React and Router4</title>
-      <link>https://sirjmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/</link>
+      <link>https://jmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/</link>
       <pubDate>Mon, 08 Jan 2018 21:18:19 +0300</pubDate>
       
-      <guid>https://sirjmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/</guid>
+      <guid>https://jmkitavi.github.io/gui/post/user-authentication-with-react-and-router4/</guid>
       <description>This blog will build up from the previous blog about simple routing in React. We will use the work done on that blog to build up on and add User Authentication to it. You can find the finished code from the previous blog here (on my Github 🕶 ).
 With the complete set up routes we can begin working on authentication. The method am going to elaborate here is protecting the routes and most of it will be done in the routes file.</description>
     </item>
     
     <item>
       <title>Simple Routing in React (Router4)</title>
-      <link>https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/</link>
+      <link>https://jmkitavi.github.io/gui/post/simple-routing-in-react/</link>
       <pubDate>Mon, 27 Nov 2017 20:38:51 +0300</pubDate>
       
-      <guid>https://sirjmkitavi.github.io/gui/post/simple-routing-in-react/</guid>
+      <guid>https://jmkitavi.github.io/gui/post/simple-routing-in-react/</guid>
       <description>React is the most popular JavaScript front end framework. I recently (not really recently, been a while) started learning react. While learning it, React moved to a new implemntation of Router - react-router v4. I had already started learning the older one, but had to switch to learn the new one. It wasn&amp;rsquo;t an easy ride, but using the Router 4 docs I managed to level up. Here is a short guide on How To Do It 👊🏾.</description>
     </item>
     
     <item>
       <title>Mr Robot Ctf</title>
-      <link>https://sirjmkitavi.github.io/gui/post/mr-robot-ctf/</link>
+      <link>https://jmkitavi.github.io/gui/post/mr-robot-ctf/</link>
       <pubDate>Thu, 09 Nov 2017 12:15:19 +0300</pubDate>
       
-      <guid>https://sirjmkitavi.github.io/gui/post/mr-robot-ctf/</guid>
+      <guid>https://jmkitavi.github.io/gui/post/mr-robot-ctf/</guid>
       <description>This is my write up on the prgress with the MR. ROT 1 CTF. Haven&amp;rsquo;t added the screenshots but they&amp;rsquo;ll be coming up shortly together with more progress.
 First, start with quick set up of both Kali Virtual Machine and Mr. Robot, both in Virtual Box.
 Now let&amp;rsquo;s get cracking…

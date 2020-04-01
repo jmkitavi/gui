@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.30.2" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://sirjmkitavi.github.io/gui/css/nix.css">
+<link rel="stylesheet" href="https://jmkitavi.github.io/gui/css/nix.css">
 
 
 <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
@@ -41,14 +41,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" id="green-terminal" href="http://sirjmkitavi.ml"/>root@sirjm ~ $</a>
+			<a class="navbar-brand" id="green-terminal" href="http://jmkitavi.ml"/>root@sirjm ~ $</a>
 		</div>
 
 		
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="https://sirjmkitavi.github.io/gui/" id="green-terminal" >/home/sirjm</a>
+					<a href="https://jmkitavi.github.io/gui/" id="green-terminal" >/home/sirjm</a>
 				</li>
 				
 				
@@ -69,140 +69,91 @@
 </header>
 
         <div class="container wrapper">
-            <h1><a href="https://sirjmkitavi.github.io/gui/post/mr-robot-ctf/">Mr Robot Ctf</a></h1>
+            <h1><a href="https://jmkitavi.github.io/gui/post/mr-robot-ctf/">Mr Robot Ctf</a></h1>
             <span class="post-date">Nov 9, 2017 </span>
             <div class="post-content">
-                
-
-<p>This is my write up on the prgress with the MR. ROT 1 CTF. Haven&rsquo;t added the screenshots but they&rsquo;ll be coming up shortly together with more progress.</p>
-
+                <p>This is my write up on the prgress with the MR. ROT 1 CTF. Haven&rsquo;t added the screenshots but they&rsquo;ll be coming up shortly together with more progress.</p>
 <p>First, start with quick set up of both Kali Virtual Machine and Mr. Robot, both in Virtual Box.</p>
-
 <p>Now let&rsquo;s get cracking…</p>
-
 <p>First do a quick network discovery to determine ip address of the server.</p>
-
 <p><code>nmap -sn 192.168.56.0/24</code></p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p>Quick nmap host discovery without port scan to make it faster.</p>
-
 <p><em>-sn:</em>  tells nmap not to do a port scan after host discovery.</p>
-
 <ul>
 <li>I have 2 Virtual machines running, my Kali machine and the Server.</li>
 <li>Checked my Kali machine ip its 192.168.56.102</li>
 <li>So, my Server is at 192.168.56.101</li>
 </ul>
-
 <p>Now, let&rsquo;s scan the server ip and see what services are running and open ports.</p>
-
 <p><code>nmap -sV 192.168.56.101</code></p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p><em>-sV:</em> Scan host while checking version of services running.</p>
-
 <p>3 services running:</p>
-
 <ul>
 <li>ssh on port 22</li>
 <li>http on port 80</li>
 <li>https on port 443</li>
 </ul>
-
 <p>Let&rsquo;s load up the browser and check.Accessing the ip through the browser.</p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p>Performed a quick check to see if the site is a wordpress site.(it saves a lot of time)</p>
-
-<p><a href="https://192.168.56.101/wp-login">https://192.168.56.101/wp-login</a></p>
-
+<p>https://192.168.56.101/wp-login</p>
 <p>And boom there was a login page.</p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p>Tried some common password combinations but that didn&rsquo;t work.</p>
-
 <p>Let&rsquo;s go on and do a quick Wordpress scan.</p>
-
 <p><code>wpscan 192.168.56.101</code></p>
-
 <p>Long output but here&rsquo;s some of it.</p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p>Lot&rsquo; of data, but let&rsquo;s go for the low hanging fruits first.</p>
-
-<p><a href="http://192.168.56.101/robots.txt">http://192.168.56.101/robots.txt</a></p>
-
+<p>http://192.168.56.101/robots.txt</p>
 <p>I didn&rsquo;t really expect much there… may be a few hidden folders, but to my surprise.</p>
-
 <p><strong>KEY-1-OF-3 !!!!!!!</strong></p>
-
-<p><Image here></p>
-
-<p><a href="https://192.168.56.101/key-1-of-3.txt">https://192.168.56.101/key-1-of-3.txt</a></p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
+<p>https://192.168.56.101/key-1-of-3.txt</p>
+<!-- raw HTML omitted -->
 <p>At first I thought this was may be a clue or something. Tried using <em>findmyhash</em> but that was a dead end.</p>
-
 <p>Let&rsquo;s move on to the other clue in the robots.txt file… fsociety.dic</p>
-
-<p><a href="https://192.168.56.101/fsocity.dic">https://192.168.56.101/fsocity.dic</a></p>
-
+<p>https://192.168.56.101/fsocity.dic</p>
 <p>Opening it up, it looks like a wordlist for password or dictionaries or directories…</p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p>Bruteforcing a login form is not usually easy without a username, but for Wordpress that problem is solved a little bit because wordpress tells you if a user is existent or not even for a wrong login. See below… Invalid username.</p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <p>So we can brute force the login and filter out the Invalid usernames and we will have valid usernames to bruteforce for the password.</p>
-
 <p>What better tool to do that than Hydra.</p>
-
 <p><code>hydra -l fsocity.dic -p password 192.168.56101 http-post-form &quot;/wp-login.php:log=^USER^&amp;pwd=^PASS^&amp;wp-submit=Log+In&amp;redirect_to=http%3A%2F%2F192.168.56.101%2Fwp-admin%2F&amp;testcookie=1:Invalid username&quot; -f -V</code></p>
-
 <p>After the first run I realized it was taking soo long, at first I thought it was the wordlist that was wrong. But then I noticed that some of the names were repeated, so I decided to abort and check that.</p>
-
-<p><Image here></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p><code>wc -l fsocity.dic</code></p>
-
+<li>
+<p><code>wc -l fsocity.dic</code></p>
 <ul>
 <li>Word count for the fsocity.dic</li>
-</ul></li>
-
-<li><p><code>sort -u fsocity.dic | wc -l</code></p>
-
+</ul>
+</li>
+<li>
+<p><code>sort -u fsocity.dic | wc -l</code></p>
 <ul>
 <li>sort uniquely and do a word count</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><strong>NB:</strong> You notice the word count reduces significantly</p>
-
 <ul>
 <li><code>sort -u fsocity.dic &gt;&gt; fsocity2.dic</code>
-
 <ul>
 <li>Create a new sorted file.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="to-be-continued">To be Continued&hellip;</h3>
 
             </div>
             
             <div class="post-comments">
                 <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -226,7 +177,7 @@
             <div class="push"></div>
         </div>
         <footer class="footer text-center">
-<p>Copyright &copy; 2018 Kitavi Joseph
+<p>Copyright &copy; 2020 Kitavi Joseph
 </p>
 </footer>
 
